@@ -1,5 +1,14 @@
 //g++ -std=c++11 test_movie.cpp -o test_movie
 
+
+
+/*
+* script to track a movie file passed as arguments, along with a center and initial edge point, 
+* and then find the contours along each (frame?). Saves the pixels into a text file called moviefile_contour_full.txt
+* which can then be used by the python scripts for analysis.
+* Supposedly every provided point within a certain tolerance will give the exact same contour out, so just need to be "good enough".
+*/
+
 #include "temika_header.h"
 #include "get_movie_frame.h"
 #include <string.h>
@@ -11,6 +20,7 @@
 #define I_MAX 10000
 
 #define VERBOSE 1
+#define VERBOSE1 0
 
 int main(int argc, char **argv)
 {
@@ -33,6 +43,8 @@ int main(int argc, char **argv)
 	new_center[0]=atof(argv[2]);
 	new_center[1]=atof(argv[3]);
 
+	
+
 	struct camera_frame_struct frame; //Temika frame struct
 	long offset = 0; //Keep track of movie position
 	int i = 0; //Frames opened so far
@@ -40,13 +52,20 @@ int main(int argc, char **argv)
 
 	const char *movie_ext = ".movie";
 
+
+	if(VERBOSE)
+	{
+		printf("about to generate filenmes");
+	}
+
 	//Makes the seed contour_filename based on movie filename
 	// but note it only creates the name and not the file itself, as far as I know **********
+	/*
 	char contour_filename[1000];
 	strcpy(contour_filename, moviefile);
 	char *p = strstr(contour_filename, movie_ext);
 	*p = '\0';
-	strcat(contour_filename, "_contour.txt");
+	strcat(contour_filename, "_contour.txt");*/
 
 	//Makes the full contour_filename based on movie filename
 	char contour_filename_new[1000];
@@ -117,7 +136,7 @@ int main(int argc, char **argv)
 		{
 
 
-			if(VERBOSE)
+			if(VERBOSE1)
 			{
 				printf("First frame setup\n");
 			}
@@ -194,7 +213,7 @@ int main(int argc, char **argv)
 			ct_st.done = 0;
 			ct_st.max_i = 0;
 
-			if(VERBOSE)
+			if(VERBOSE1)
 			{
 				printf("\nj=%i iteration, about to get_contour\n",j);
 			}
@@ -206,7 +225,7 @@ int main(int argc, char **argv)
 			}
 		}
 
-		if(VERBOSE)
+		if(VERBOSE1)
 		{
 			printf("ct_st parameters setup\n");
 		}
@@ -225,7 +244,7 @@ int main(int argc, char **argv)
 		}
 
 
-		if(VERBOSE)
+		if(VERBOSE1)
 		{
 			printf("Updated old_contour. About to save to file...\n");
 			printf("Old contour: %f\n", old_contour);
@@ -233,7 +252,7 @@ int main(int argc, char **argv)
 		save_contour(contour_filename_new, ct_st); //Save everything
 
 
-		if(VERBOSE)
+		if(VERBOSE1)
 		{
 			printf("Saved. Now up to bit where we had printing before...\n");
 		}

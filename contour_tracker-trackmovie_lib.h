@@ -349,7 +349,7 @@ namespace ct
 
 			Vector candidate(projection*unit_vectors_px[ax].x + c.x, projection*unit_vectors_px[ax].y + c.y);
 
-			printf("candidate: %s\n",candidate);
+			//printf("candidate: %s\n",candidate);
 
 			bar_point_v_slope[0] = 0;
 			bar_point_v_slope[1] = 0;
@@ -478,7 +478,7 @@ namespace ct
 		int i = 1;
 		while (ct_st->done != 1)
 		{
-			printf("i=%i iteration of get_contour while loop\n", i);
+			//printf("i=%i iteration of get_contour while loop\n", i);
 			if (i == ct_st->max)
 			{
 				printf("i == ct_st->max; returning NULL\n");
@@ -520,7 +520,7 @@ namespace ct
 			//Check whether the next px point is somewhere within the beginning, ignoring the burnt bit
 			if (i > ct_st->burn)
 			{
-				printf("i > ct_st->burn; starting for loop, which may return NULL\n");
+				//printf("i > ct_st->burn; starting for loop, which may return NULL\n");
 				for (int j = ct_st->burn; j < i; j++)
 				{
 					if ((ct_st->contour_px[2*i] == ct_st->contour_px[2*j]) && (ct_st->contour_px[2*i + 1] == ct_st->contour_px[2*j + 1]))
@@ -533,7 +533,7 @@ namespace ct
 					}
 				}
 			}
-			printf("reached i++\n");
+			//printf("reached i++\n");
 			i++;
 		}
 	}
@@ -548,7 +548,7 @@ namespace ct
 		FILE *fptr = fopen(contour_filename,"a");
 		if (fptr == NULL)
 		{
-			printf("fptr==NULL. Terminating useful work");
+			printf("fptr==NULL in save_contour(). Terminating useful work");
 			return -1;
 		}
 		else
