@@ -199,7 +199,7 @@ int main(int argc, char **argv)
 				printf("\nj=%i iteration, about to get_contour\n",j);
 			}
 
-			ct::get_contour(&ct_st);
+			ct::get_contour(&ct_st); // currently problematic
 			if (ct_st.max_i != -1)
 			{
 				break;
