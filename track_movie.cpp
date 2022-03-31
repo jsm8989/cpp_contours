@@ -287,7 +287,7 @@ int main(int argc, char **argv)
 			printf("\b");
 		}
 		printf("Total frames = %d\n", i);
-		printf("Frames dropped = %d\n", bad_frames);
+		printf("Frames dropped = %d\n", bad_frames); // should add this to the text file somewhere
 		printf("\n");
 	}
 
