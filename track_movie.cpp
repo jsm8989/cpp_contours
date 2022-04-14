@@ -55,11 +55,11 @@ int main(int argc, char **argv)
 
 	if(VERBOSE)
 	{
-		printf("about to generate filenmes");
+		printf("about to generate filenames \n");
 	}
 
 	//Makes the seed contour_filename based on movie filename
-	// but note it only creates the name and not the file itself, as far as I know **********
+	
 	/*
 	char contour_filename[1000];
 	strcpy(contour_filename, moviefile);

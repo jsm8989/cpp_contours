@@ -489,7 +489,7 @@ namespace ct
 
 			if(next_point(ct_st->contour_px + 2*i, ct_st->contour_fine + 2*i, ct_st->im_array, ct_st->rows, ct_st->cols, ct_st->contour_px, i, *(ct_st->center), ct_st->horizontal_window, ct_st->slope_window, ct_st->chirality) == -1)
 			{
-				printf("next_point condition satisfied; returning NULL\n");
+				//printf("next_point condition satisfied; returning NULL\n");
 				ct_st->max_i = -1;
 				ct_st->done = 1;
 				return NULL;
