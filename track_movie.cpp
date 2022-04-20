@@ -20,7 +20,7 @@
 #define I_MAX 10000
 
 #define VERBOSE 1
-#define VERBOSE1 0
+#define VERBOSE1 1
 
 int main(int argc, char **argv)
 {
@@ -221,6 +221,7 @@ int main(int argc, char **argv)
 			ct::get_contour(&ct_st); // currently problematic
 			if (ct_st.max_i != -1)
 			{
+				printf("ct_st.max_i != -1, breaking");
 				break;
 			}
 		}
