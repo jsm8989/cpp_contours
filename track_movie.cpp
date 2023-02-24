@@ -25,7 +25,8 @@ int main(int argc, char **argv)
 
 	/*
 	List of successful (attempted) arguments:
-	../../data_remote/floppy.11Nov2021_11.18.23.movie (87 161 38 159)
+	../../data_remote/floppy.11Nov2021_11.18.23.movie 87 161 38 159
+	./data/well_C5_cell_0000.movie 110 113 150 109
 
 	*/
 
